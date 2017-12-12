@@ -1,17 +1,24 @@
 <%= form_for @event do |f|%>
 <div class="form-group">
+  <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
   <label>Name: </label>
   <%= f.text_field :name, placeholder: "Listing name", class: "form-control"%> <br>
   <label>Description: </label>
   <%= f.text_field :description, placeholder: "Description", class: "form-control"%> <br>
   <label>Location: </label>
   <%= f.text_field :location, placeholder: "Location", class: "form-control"%> <br>
-  <label>Price: </label>
+  <label>Price: € </label>
   <%= f.number_field :price, placeholder: "Price", class: "form-control"%> <br>
   <label>Capacity: </label>
   <%= f.select :capacity, placeholder: "Listing name", class: "form-control"%>  <br><br>
-  <label>Date: </label>
-  <%= f.date_field :starts_at, placeholder: "Listing name", class: "form-control"%> <br><br>
+  <label>Starts at: </label>
+  <%= f.datetime_select :starts_at, placeholder: "Start at", class: "form-control"%> <br><br>
+  <label>Ends at: </label>
+  <%= f.datetime_select :ends_at, placeholder: "Listing name", class: "form-control"%> <br><br>
   <hr>
   <label>Amenities</label>
   <div class="form-group">
@@ -21,14 +28,18 @@
   <%= f.check_box :includes_drinks %> Drinks includes
   </div>
   <hr>
+  <label>Categories</label>
+
+  <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
+    <div class="form-group">
+      <%= b.check_box(class: "check_box") %> <%= b.object.name %>
+    </div>
+  <% end %>
+
   <div class="actions">
   <%= f.submit "Save", class: "btn btn-primary" %>
   </div>
-  <ul>
-  <% @event.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
+
   <%= %>
 </div>
 <% end %>

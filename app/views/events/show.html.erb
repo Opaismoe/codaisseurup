@@ -7,29 +7,31 @@
 
   <div class="panel-body">
     <div class="col-md-10">
-    Number of guests <br>
+    <label>Number of guests <br>
     <%=  %>
     <br>
     <%= link_to "Register", events_path, class: "btn btn-default" %>
     <hr>
-    Location: <%= @event.location %>
+    <label>Location:</label> <%= @event.location %>
     <br>
-    Host: <%=  %>
+    <label>Starts at: <%= @event.starts_at %></label>
     <br>
-    Date: <%= @event.starts_at %>
+    <label>Ends at: <%= @event.ends_at %></label>
     <br>
-    Price: <%= @event.price %>
+    <label>Price: €</label> <%= @event.price %>
     <br>
-    Capacity: <%= @event.capacity %>
+    <label>Capacity:</label> <%= @event.capacity %>
     <br>
-    Food included: <%= @event.includes_food %>
+    <label>Food included:</label> <%= @event.includes_food %>
     <br>
-    Drinks included: <%= @event.includes_drinks %>
+    <label>Drinks included:</label> <%= @event.includes_drinks %>
     <br>
-    Status: <%= @event.active %>
+    <label>Status:</label> <%= @event.active %>
     <br>
-
-    Categories:
+    <h4>Categories</h4>
+    <% @categories.each do |category| %>
+      <span class="label label-success"><%= category.name %></span>
+    <% end %>
     <br>
     <hr>
     <%= link_to "Back", events_path, class: "btn btn-default" %>

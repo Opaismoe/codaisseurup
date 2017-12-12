@@ -3,6 +3,10 @@ class Event < ApplicationRecord
   has_and_belongs_to_many :categories
 
   validates :name, presence: true
+  validates :starts_at, presence: true
+  # validates :ends_at, presence: true
+
+  validates :starts_at, presence: true
   validates :description, presence: true, length: { maximum: 500 }
 
 end
