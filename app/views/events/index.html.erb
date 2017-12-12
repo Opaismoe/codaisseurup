@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h1>Your Events</h1>
+      </div>
+      <div class="panel-body">
+        <div class="col">
+          <% @events.each do |event| %>
+          <div class="col-md-4 event-card">
+            <div class="card" style="width: 319px;">
+              <div class="card-img-top" ><%= image_tag 'events-card.jpg', size: "318x180", class: "card-img-top" %></div>
+              <div class="card-body">
+                <h4 class="card-title"><%= event.name %></h4>
+                <p class="card-text"><%= event.description %></p>
+                <%= link_to "View", event, class: "btn btn-default" %>
+                <%= link_to "Update", edit_event_path(event), class: "btn btn-default" %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<img src="events-card.jpg" alt="">

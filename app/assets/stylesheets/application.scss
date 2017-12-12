@@ -3,6 +3,43 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.events-container {
-  top: 150px;
+.panel > .panel-heading {
+  background-color: #dfe6e9;
+  color: rgb(72, 75, 82);
 }
+.panel-body {
+  background-color: #fafafa;
+}
+.card {
+  margin: 0 auto;
+  border: 1px solid grey;
+  box-shadow: 1px 2px 15px grey;
+  margin-top: 10px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.panel-primary {
+  border-color: #777777;
+  box-shadow: 2px 2px 5px grey;
+}
+
+.navbar-default {
+    background-color: #dfe6e9;
+    border-color: #337ab7;
+}
+
+body {
+  background-color: rgba(251, 251, 251, 0.69);
+}
+// .panel-heading {
+//   background-color: rgb(140, 34, 34)!important;
+// }
+
+// body {
+//   background: url(cool-bg.gif);
+//   background-repeat: no-repeat;
+//   background-blend-mode: lighten;
+// }
