@@ -45,6 +45,9 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # rspec / Capybara
   gem 'capybara', '~> 2.9', '>= 2.9.1'
+  # Some more testing.
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
