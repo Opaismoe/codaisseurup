@@ -45,7 +45,7 @@ def event_params
     .require(:event)
     .permit(
       :name, :description, :location, :price, :capacity, :includes_food,
-      :includes_drinks, :starts_at, :ends_at, :active, :category, event_ids: []
+      :includes_drinks, :starts_at, :ends_at, :active, :category, category_ids: []
     )
 end
 
