@@ -31,6 +31,11 @@
     <% @categories.each do |category| %>
       <span class="label label-success"><%= category.name %></span>
     <% end %>
+    <!-- Photos -->
+    <h4>Photos</h4>
+    <% @event.photos.each do |photo| %>
+      <%= image_tag photo.image %>
+    <% end %>
     <br>
     <hr>
     <%= link_to "Back", events_path, class: "btn btn-default" %>
