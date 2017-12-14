@@ -20,12 +20,12 @@ end
 
 # trying to test association user / profile
 
-describe "association with profile" do
-  let(:user) { create :user }
-  let!(:profile) { create :profile, user_id: user }
-
-  it "One user has one profile" do
-
-    expect(profile.user_id).to include(user)
-  end
-end
+# describe "association with profile" do
+#   let(:user) { create :user }
+#   let!(:profile) { create :profile, user_id: user }
+#
+#   it "One user has one profile" do
+#
+#     expect(profile.user_id).to include(user)
+#   end
+# end

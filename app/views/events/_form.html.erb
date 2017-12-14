@@ -18,17 +18,17 @@
   <%= f.number_field :price, placeholder: "Price", class: "form-control"%>
   <br>
   <label>Capacity: </label>
-  <%= f.select :capacity, placeholder: "Listing name", class: "form-control"%>
+  <%= f.select :capacity, Event::EVENT_CAPACITY, class: "form-control"%>
   <br><br>
   <label>Starts at: </label>
   <%= f.datetime_select :starts_at, placeholder: "Start at", class: "form-control"%>
   <br><br>
   <label>Ends at: </label>
   <%= f.datetime_select :ends_at, placeholder: "Listing name", class: "form-control"%>
-  <br><br>
+  <br>
   <hr>
   <label>Amenities</label>
-  <hr>
+  <br>
   <div class="form-group">
   <%= f.check_box :includes_food %> Includes food
   </div>
