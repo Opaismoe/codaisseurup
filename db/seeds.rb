@@ -20,6 +20,8 @@ Event.create!(
   ends_at: "2017-13-12 13:15:18",
   price:15,
   categories: [learning, culture],
+  capacity: 5,
+  includes_drinks: true,
 )
 
 Event.create!(
@@ -31,6 +33,8 @@ Event.create!(
   ends_at: "2017-13-12 22:15:18",
   price:15,
   categories: [learning, culture],
+  capacity: 3,
+  includes_drinks: true,
 )
 
 Event.create!(
@@ -42,6 +46,8 @@ Event.create!(
   ends_at: "2017-13-12 22:15:18",
   price:15,
   categories: [night_life, gatherings],
+  capacity: 3,
+  includes_drinks: true,
 )
 
 Event.create!(
@@ -53,6 +59,8 @@ Event.create!(
   ends_at: "2017-13-12 22:15:18",
   price:15,
   categories: [learning, culture, music],
+  capacity: 3,
+  includes_food: true,
 )
 
 Event.create!(
@@ -64,6 +72,7 @@ Event.create!(
   ends_at: "2017-13-12 22:15:18",
   price:15,
   categories: [learning, culture, night_life, music],
+  capacity: 2,
 )
 
 Event.create!(
@@ -75,6 +84,7 @@ Event.create!(
   ends_at: "2017-13-12 22:15:18",
   price:15,
   categories: [culture],
+  capacity: 25,
 )
 
 puts "Gave it #{User.count} user"

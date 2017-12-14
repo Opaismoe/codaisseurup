@@ -3,6 +3,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background-color: rgba(251, 251, 251, 0.69);
+}
 .panel > .panel-heading {
   background-color: #dfe6e9;
   color: rgb(72, 75, 82);
@@ -31,9 +34,10 @@
     border-color: #337ab7;
 }
 
-body {
-  background-color: rgba(251, 251, 251, 0.69);
+.capacity-number {
+  font-size: 30px;
 }
+
 // .panel-heading {
 //   background-color: rgb(140, 34, 34)!important;
 // }

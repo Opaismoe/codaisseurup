@@ -8,23 +8,22 @@
   <div class="panel-body">
     <div class="col-md-10">
     <label>Number of guests <br>
-    <%=  %>
+    <label class="capacity-number"><%=  @event.capacity %></label>
     <br>
-    <%= link_to "Register", events_path, class: "btn btn-default" %>
     <hr>
-    <label>Location:</label> <%= @event.location %>
-    <br>
     <label>Starts at: <%= @event.starts_at %></label>
     <br>
     <label>Ends at: <%= @event.ends_at %></label>
+    <br>
+    <label>Location:</label> <%= @event.location %>
     <br>
     <label>Price: €</label> <%= @event.price %>
     <br>
     <label>Capacity:</label> <%= @event.capacity %>
     <br>
-    <label>Food included:</label> <%= @event.includes_food %>
+    <%= !@event.includes_food ? ("<s>Food included</s>").html_safe : "Food included" %>
     <br>
-    <label>Drinks included:</label> <%= @event.includes_drinks %>
+    <%= !@event.includes_drinks ? ("<s>Drinks included</s>").html_safe : "Drinks included" %>
     <br>
     <label>Status:</label> <%= @event.active %>
     <br>
@@ -35,6 +34,7 @@
     <br>
     <hr>
     <%= link_to "Back", events_path, class: "btn btn-default" %>
+    <%= link_to "Register", events_path, class: "btn btn-default" %>
     </div>
   </div>
 </div>
