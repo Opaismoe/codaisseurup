@@ -34,12 +34,16 @@
     <!-- Photos -->
     <h4>Photos</h4>
     <% @event.photos.each do |photo| %>
-      <%= image_tag photo.image %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= image_tag photo.image.thumbnail %>
+      </div>
+    </div>
     <% end %>
     <br>
     <hr>
     <%= link_to "Back", events_path, class: "btn btn-default" %>
-    <%= link_to "Register", events_path, class: "btn btn-default" %>
+    <%= link_to "Update", edit_event_path, class: "btn btn-default" %>
     </div>
   </div>
 </div>
