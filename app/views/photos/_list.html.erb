@@ -1,12 +1,11 @@
 <% if @photos %>
   <% @photos.each do |photo| %>
     <div class="panel panel-default">
-      <div class="panel-heading preview">
+      <div class="panel-heading">
         <%= image_tag photo.image.thumbnail %>
-      </div>
-      <div class="panel-body">
-        <span class="btn btn-default">Delete</span>
-        <%= link_to "Delete", photo_path( photo.id ), class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } %>
+        <div class="panel-body">
+        <%= link_to "Delete", photo_path( photo.id ), class: "btn btn-primary", method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
       </div>
     </div>
   <% end %>

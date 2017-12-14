@@ -3,40 +3,50 @@
 <div class="form-group">
   <ul>
     <% @event.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+    <li class="alert alert-danger"><%= msg %></li>
     <% end %>
   </ul>
+
   <label>Name: </label>
     <%= f.text_field :name, placeholder: "Listing name", class: "form-control"%>
   <br>
+
   <label>Description: </label>
     <%= f.text_field :description, placeholder: "Description", class: "form-control"%>
   <br>
+
   <label>Location: </label>
   <%= f.text_field :location, placeholder: "Location", class: "form-control"%>
   <br>
+
   <label>Price: € </label>
   <%= f.number_field :price, placeholder: "Price", class: "form-control"%>
   <br>
+
   <label>Capacity: </label>
   <%= f.select :capacity, Event::EVENT_CAPACITY, class: "form-control"%>
   <br><br>
+
   <label>Starts at: </label>
   <%= f.datetime_select :starts_at, placeholder: "Start at", class: "form-control"%>
   <br><br>
+
   <label>Ends at: </label>
   <%= f.datetime_select :ends_at, placeholder: "Listing name", class: "form-control"%>
   <br>
   <hr>
+
   <label>Amenities</label>
   <br>
   <div class="form-group">
   <%= f.check_box :includes_food %> Includes food
   </div>
+
   <div class="form-group">
   <%= f.check_box :includes_drinks %> Drinks includes
   </div>
   <hr>
+
   <label>Categories</label>
 
   <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |b| %>
@@ -44,22 +54,24 @@
       <%= b.check_box(class: "check_box") %> <%= b.object.name %>
     </div>
   <% end %>
-
+  <hr>
   <label>Photos</label>
+
+  <div id="panel panel-heading">
+    <%= render 'photos/list' %>
+  </div>
 
   <div class="form-group">
     <span class="btn btn-default">
       Upload Photos
       <%= file_field_tag "images[]", type: :file, multiple: true %>
     </span>
-    <div id="photos">
-      <%= render 'photos/list' %>
-    </div>
   </div>
 
 
   <div class="actions">
   <%= f.submit "Save", class: "btn btn-primary" %>
+
   </div>
 
   <%= %>
