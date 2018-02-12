@@ -3,7 +3,7 @@
 Website i made during the 9 weeks course of Codaisseur.
 The assignment was to make an Meetup clone with forms, and image upload.
 
-[![](https://github.com/Opaismoe/codaisseurup/blob/master/app/assets/images/screenshot-codaisseurUp.jpg?raw=true)
+(https://github.com/Opaismoe/codaisseurup/blob/master/app/assets/images/screenshot-codaisseurUp.jpg?raw=true)
 
 ## Steps
 
