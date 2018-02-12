@@ -78,4 +78,34 @@ RSpec.describe Event, type: :model do
       expect(event.categories).to include(category3)
     end
   end
+
+# describe "Is invalid if end date is before start date"
+# let(:event) { create :event }
+
+# test for registraion model
+
+describe "association with registration" do
+  let (:guest_user) { create :user, email: "whoami@gmail.com"}
+  let (:host_user) { create :user, email: "hostiam@gmail.com"}
+
+    let! (:event) { create :event, user: host_user}
+    let! (:registration) { create :registration, event: event, user: guest_user}
+
+    it "has guests" do
+      expect(event.guests).to include(guest_user)
+    end
+  end
+
+
+describe "association with registration" do
+  let (:guest_user) { create :user, email: "whoami@gmail.com"}
+  let (:host_user) { create :user, email: "hostiam@gmail.com"}
+
+    let! (:event) { create :event, user: host_user}
+    let! (:registration) { create :registration, event: event, user: guest_user}
+
+    it "has guests" do
+      expect(guest_user.registered_events).to include(event)
+    end
+  end
 end

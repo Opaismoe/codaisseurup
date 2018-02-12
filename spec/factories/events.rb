@@ -6,9 +6,10 @@ FactoryBot.define do
     location            { Faker::Address.city }
     includes_food         true
     includes_drinks       true
-    price                { Faker::Commerce.price }
+    price               { Faker::Commerce.price }
     user                { build(:user) }
-    starts_at            { Faker::Date.between(2.days.ago, Date.today)}
+    starts_at           { Faker::Date.between(2.days.ago, Date.today)}
+    ends_at             { Faker::Date.between(2.days.after, Date.today)}
 
     trait :active do
       active true

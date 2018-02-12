@@ -1,18 +1,27 @@
 Category.destroy_all
 Event.destroy_all
-Photo.destroy_all
+Photo.delete_all
 Profile.destroy_all
 User.destroy_all
 
 opa = User.create!(email: "wiebe@gmail.com", password: "123456")
-oma = User.new(email: "omaismoe@gmail.com", password: "123456")
-groot_opa = User.new(email: "grootopaisookmoe@gmail.com", password: "123456")
 
-night_life = Category.create!(name: "Night life")
-learning = Category.create!(name: "Learning")
-culture = Category.create!(name: "Culture")
-music = Category.create!(name: "Music")
-gatherings = Category.create!(name: "Gatherings")
+# Users
+users = []
+60.times do
+  users << User.create(
+    email: Faker::Internet.email,
+    password: "abcd1234"
+  )
+end
+
+# Categories
+categories = []
+categories << Category.create!(name: "Night life")
+categories <<  Category.create!(name: "Learning")
+categories <<  Category.create!(name: "Culture")
+categories <<  Category.create!(name: "Music")
+categories <<  Category.create!(name: "Gatherings")
 
 event1 = Event.create!(
   name: "Coffee party",
@@ -22,79 +31,38 @@ event1 = Event.create!(
   starts_at: "2017-12-12 22:15:18",
   ends_at: "2017-13-12 13:15:18",
   price:15,
-  categories: [learning, culture],
   capacity: 5,
+  categories: categories.sample(rand(0..4)),
   includes_drinks: true,
 )
 
-event2 = Event.create!(
-  name: "Tea party",
-  user: opa,
-  description:"Go do that somewhere else the coffe party said, well here it is. in a different part of the town! for you tea lovers",
-  location: "Amsterdam, Noorderpark.",
-  starts_at: "2017-12-12 22:15:18",
-  ends_at: "2017-13-12 22:15:18",
-  price:15,
-  categories: [learning, culture],
-  capacity: 3,
-  includes_drinks: true,
-)
+# Events
+events = []
+users.sample(15).each do |user|
+  events << Event.create(
+    name: Faker::Company.bs,
+    user: user,
+    price: rand(15..25),
+    location: Faker::Address.city,
+    starts_at:Faker::Date.between(3.year.ago, 1.years.from_now),
+    ends_at: Faker::Date.between(1.years.from_now, 2.years.from_now),
+    categories: categories.sample(rand(0..4)),
+    capacity: rand(1..25),
+    includes_drinks:[true, false].sample,
+    includes_food:[true, false].sample,
+    description: Faker::Hipster.paragraph,
+  )
+end
 
-event3 = Event.create!(
-  name: "Wine & dine",
-  user: opa,
-  description:"Yeah you know, it's for you fancy folks out that that like some wine and maybe some food to go with that.",
-  location: "Amsterdam, Vondelpark.",
-  starts_at: "2017-12-12 22:15:18",
-  ends_at: "2017-13-12 22:15:18",
-  price:15,
-  categories: [night_life, gatherings],
-  capacity: 3,
-  includes_drinks: true,
-)
-
-event4 = Event.create!(
-  name: "Read chinese backwards",
-  user: opa,
-  description:"Or in other words, the right way?.",
-  location: "Arnhem, je moeder.",
-  starts_at: "2017-12-12 22:15:18",
-  ends_at: "2017-13-12 22:15:18",
-  price:15,
-  categories: [learning, culture, music],
-  capacity: 3,
-  includes_food: true,
-)
-
-event5 = Event.create!(
-  name: "Destory a bakfiets",
-  user: opa,
-  description:"A bakfiets you said? yes a bakfiets! kill it with fire!.",
-  location: "Amsterdam, Vondelpark.",
-  starts_at: "2017-12-12 22:15:18",
-  ends_at: "2017-13-12 22:15:18",
-  price:15,
-  categories: [learning, culture, night_life, music],
-  capacity: 2,
-)
-
-event6 = Event.create!(
-  name: "Old dutch vliegeren",
-  user: opa,
-  description:"Sounds dirty? well it aint! you perverd.",
-  location: "Amsterdam, Vondelpark.",
-  starts_at: "2017-12-12 22:15:18",
-  ends_at: "2017-13-12 22:15:18",
-  price:15,
-  categories: [culture],
-  capacity: 25,
-)
-
-photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/opaismoe/image/upload/v1513261013/saalbach-winter-events-dutchweekend-015_bv7ra3.jpg", event: event1)
-photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/opaismoe/image/upload/v1513261014/PastEvents_uukcsw.jpg", event: event2)
-photo3 = Photo.create!(remote_image_url: "http://res.cloudinary.com/opaismoe/image/upload/v1513261013/saalbach-winter-events-dutchweekend-015_bv7ra3.jpg", event: event3)
-photo4 = Photo.create!(remote_image_url: "http://res.cloudinary.com/opaismoe/image/upload/v1513261013/saalbach-winter-events-dutchweekend-015_bv7ra3.jpg", event: event4)
+events.sample(10).each do |event|
+  Registration.create!(
+    event: event,
+    status: true,
+    guest_count: rand(1..25),
+  )
+end
 
 puts "Gave it #{User.count} user"
 puts "Gave it #{Event.count} Events"
 puts "Gave it #{Category.count} categories"
+puts "Gave it #{Registration.count} new registrations"
