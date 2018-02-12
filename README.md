@@ -1,24 +1,71 @@
-# README
+# CodaisseurUp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Website i made during the 9 weeks course on Codaisseur.
+The assignment was to make an Meetup clone with forms, and image upload.
 
-Things you may want to cover:
+## Steps
 
-* Ruby version
+These are the steps I followed when working on this app:
 
-* System dependencies
+1. Setting up project
+2. Adding Bootstrap, jquery, devise, rspec,
+3. Setting up the database
+4. Setting up the models, and controllers.
+5. Adding views
+6. Add Cloudinary, carrierwave
 
-* Configuration
+## Database Structure
 
-* Database creation
+1. Categories
 
-* Database initialization
+  * title:string
 
-* How to run the test suite
+2. Events
 
-* Services (job queues, cache servers, search engines, etc.)
+  * title:string
+  * description:text
+  * location:string
+  * price:decimal
+  * capacity:integer
+  * includes_food:boolean
+  * includes_drinks:boolean
+  * active:boolean
+  * starts_at:datetime
+  * ends_at:datetime
 
-* Deployment instructions
+3. Photos
 
-* ...
+  * event_id:bigint
+  * image:string
+
+4. Profiles
+
+  * first_name:string
+  * last_name:string
+  * bio:text
+
+5. Registations
+
+  * user_id:bigint
+  * event_id:bigint
+  * status:boolean
+  * guest_count:integer
+
+## Running Locally
+
+Make sure you have [Ruby](https://www.ruby-lang.org/en/) and [Bundler](http://bundler.io/) installed.
+
+```bash
+git clone git@github.com:Opaismoe/codaisseurup.git
+cd Codaisseurup
+bundle install
+rails db:create db:migrate db:seed
+rails server
+```
+
+## Related documentation
+
+For more information about using CarrierWave and Cloudinary, see these links:
+
+* [CarrierWave](https://github.com/carrierwaveuploader/carrierwave)
+* [Cloudinary](http://cloudinary.com/documentation/rails_integration#getting_started_guide)

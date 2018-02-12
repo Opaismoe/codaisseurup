@@ -41,7 +41,7 @@ events = []
 users.sample(15).each do |user|
   events << Event.create(
     name: Faker::Company.bs,
-    user: user,
+    user: opa,
     price: rand(15..25),
     location: Faker::Address.city,
     starts_at:Faker::Date.between(3.year.ago, 1.years.from_now),
