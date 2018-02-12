@@ -1,6 +1,6 @@
 # CodaisseurUp
 
-Website i made during the 9 weeks course on Codaisseur.
+Website i made during the 9 weeks course of Codaisseur.
 The assignment was to make an Meetup clone with forms, and image upload.
 
 ## Steps
