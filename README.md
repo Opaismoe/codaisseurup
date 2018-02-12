@@ -3,6 +3,8 @@
 Website i made during the 9 weeks course of Codaisseur.
 The assignment was to make an Meetup clone with forms, and image upload.
 
+[![]()
+
 ## Steps
 
 These are the steps I followed when working on this app:
